@@ -7,8 +7,6 @@ import android.util.Log;
 import static android.content.ContentValues.TAG;
 
 public class MyService extends IntentService {
-
-
     /**
      * 使用Eclipse如果没有添加这个无参构造函数的话会报一个运行时错误： java.lang.InstantiationException
      */
@@ -17,7 +15,6 @@ public class MyService extends IntentService {
          * 这里只需要传入一个字符串就可以了
          */
         super("MyService");
-
     }
 
     /**
@@ -26,10 +23,6 @@ public class MyService extends IntentService {
     @Override
     protected void onHandleIntent(Intent intent) {
         Log.e(TAG, "onHandleIntent: 执行服务" );
-        /**
-         * 因为这个方法是在子线程里面处理的，所以这里我们不能直接在子线程里面弹Toast
-         * 我们这里使用handler来帮助我们处理Toast
-         */
         try {
             Thread.sleep(3000);
         } catch (InterruptedException e) {
